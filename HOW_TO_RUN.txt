@@ -1,0 +1,9 @@
+In order to run project you must have 2 terminals
+
+- first terminal you must run the root of the project
+    
+    other_dir_here\project1_react_mysql> npm start
+
+- SECOND terminal, you must run the server folder
+
+    \project1_react_mysql\server> node server.js
