@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Registration from './components/Registration';
+import Login from './components/Login';
+import PasswordRecovery from './components/PasswordRecovery';
+import Dashboard from './components/Dashboard';
 function App() {
+
+  const [user, setUser] = useState(null); //manage user state;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/login" element={<Login setUser={setUser}/>} />
+          <Route path="/password-recovery" element={<PasswordRecovery />} />
+          <Route path="/" element={<Dashboard user={user}/>} />
+          {/* You can add more routes here if needed */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
